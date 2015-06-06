@@ -1,0 +1,9 @@
+<table width="100%" cellspacing="1" class="outer">
+  <{foreach item=comment from=$block.comments}>
+  <tr class="<{cycle values="even,odd"}>">
+    <td valign="top"><img src="<{$xoops_imageurl}>images/comment.gif" ></td>
+    <td valign="top"><{$comment.title}> <br />      
+    <{$comment.poster}> <{$comment.time}></td>
+  </tr>
+  <{/foreach}>
+</table>

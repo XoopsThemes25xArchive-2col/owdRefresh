@@ -1,0 +1,47 @@
+<!-- start comment post -->
+
+        <tr>
+          <td class="odd" width="2">&nbsp;</td>
+          <td class="odd"><blockquote><a id="comment<{$comment.id}>"></a> 
+		        <div style="font-weight:bold"><{$comment.poster.uname}>: </div>
+            	<div class="comTitle"><{$comment.title}></div>
+				<div class="comText"><{$comment.text}></div>
+				<div class="align-right"><span class="comDateCaption"><{$lang_updated}>:</span> <{$comment.date_modified}></div>
+			
+			</blockquote>
+          </td>
+        </tr>
+ 
+
+
+        <tr>
+          <td class="even"></td>
+		  
+          <{if $xoops_iscommentadmin == true}>
+
+          <td class="even" align="right">
+            <a href="<{$editcomment_link}>&amp;com_id=<{$comment.id}>"><img src="<{$xoops_url}>/images/icons/edit.gif" alt="<{$lang_edit}>" /></a><a href="<{$deletecomment_link}>&amp;com_id=<{$comment.id}>"><img src="<{$xoops_url}>/images/icons/delete.gif" alt="<{$lang_delete}>" /></a><a href="<{$replycomment_link}>&amp;com_id=<{$comment.id}>"><img src="<{$xoops_url}>/images/icons/reply.gif" alt="<{$lang_reply}>" /></a>
+          </td>
+
+          <{elseif $xoops_isuser == true && $xoops_userid == $comment.poster.id}>
+
+          <td class="even" align="right">
+            <a href="<{$editcomment_link}>&amp;com_id=<{$comment.id}>"><img src="<{$xoops_url}>/images/icons/edit.gif" alt="<{$lang_edit}>" /></a><a href="<{$replycomment_link}>&amp;com_id=<{$comment.id}>"><img src="<{$xoops_url}>/images/icons/reply.gif" alt="<{$lang_reply}>" /></a>
+          </td>
+
+          <{elseif $xoops_isuser == true || $anon_canpost == true}>
+
+          <td class="even" align="right">
+            <a href="<{$replycomment_link}>&amp;com_id=<{$comment.id}>"><img src="<{$xoops_url}>/images/icons/reply.gif" alt="<{$lang_reply}>" /></a>
+          </td>
+
+          <{else}>
+
+          <td class="even"> </td>
+
+          <{/if}>
+
+        </tr>
+		
+
+<!-- end comment post -->
